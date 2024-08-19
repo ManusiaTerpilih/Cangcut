@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Halaman Tidak Ditemukan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 100px;
+            margin: 0;
+            color: #dc3545;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        #countdown {
+            font-size: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <p>Maaf, halaman yang Anda cari sedang dalam tahap pengembangan.</p>
+        <p>Anda akan diarahkan kembali ke <a href="/" id="homepage-link">halaman utama</a> dalam <span id="countdown">10</span> detik.</p>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Nama Perusahaan. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+        // Fungsi untuk menghitung mundur
+        function countdown() {
+            var countdownElement = document.getElementById('countdown');
+            var timeLeft = 10; // Waktu mundur dalam detik
+
+            var interval = setInterval(function() {
+                timeLeft--;
+                countdownElement.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    window.location.href = document.getElementById('homepage-link').href;
+                }
+            }, 1000);
+        }
+
+        // Jalankan fungsi countdown saat halaman dimuat
+        window.onload = countdown;
+    </script>
+</body>
+</html>
